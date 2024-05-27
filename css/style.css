@@ -31,6 +31,76 @@
 /*	01) IKNOW BASE
 /*---------------------------------------------------*/
 
+.hidden {
+	display: none;
+}
+.right {
+	display: flex;
+}
+.fields, .pertanyaan-selanjutnya {
+	flex: 1;
+	margin: 10px;
+}
+.button-group {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* DROPDOWN */
+
+/* Dropdown Style */
+.dropdown_area {
+    margin-top: 20px;
+}
+
+.form-select {
+	width: 100%;
+	height: 50px;
+	border-radius: 10px;
+	padding-left: 25px;
+	letter-spacing: 2px;
+	
+    padding: 10px;
+    border: 1px solid #ccc;
+	font-weight: 400;
+	font-family: "poppins";
+    font-size: 16px;
+    background-color: #fff;
+	outline: none;
+	background-color: transparent;
+	border: 1px solid rgba(0,0,0,.3);
+	color: #888;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-select:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+/* Button Style */
+.iknow_tm_button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.iknow_tm_button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E48F9C;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.iknow_tm_button a:hover {
+    background-color: #E48F9C;
+}
+
+
+
+
 html {
 	overflow-x: hidden;
 	padding: 0px;
@@ -565,6 +635,11 @@ body.dark .loader_line:after{
 	justify-content: space-around;
 	flex-direction: column;
 }
+
+.content_inner .right .image {
+    margin-bottom: 40px; /* Tambahkan margin bawah sebesar 20px */
+}
+
 .iknow_tm_hero .content_inner .main_info{
 	display: flex;
 	align-items: center;
@@ -609,7 +684,7 @@ body.dark .loader_line:after{
 .iknow_tm_video .circle{
 	width: 72px;
 	height: 72px;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	border-radius: 100%;
 	position: relative;
 }
@@ -693,7 +768,7 @@ body.dark .loader_line:after{
 	bottom: 24px;
 	left: 24px;
 	right:24px;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	z-index: -1;
 	transform: rotate(-50deg);
 	animation: animeRotate 13s linear 0s infinite alternate;
@@ -2244,7 +2319,7 @@ body.dark .loader_line:after{
 	display: inline-block;
 	width: 107px;
 	height: 107px;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	border-radius: 100%;
 	position: relative;
 	margin-bottom: 25px;
@@ -2404,7 +2479,7 @@ body.dark .loader_line:after{
 .iknow_tm_testimonials .testimonials_list .right .svg{
 	width: 50px;
 	height: 50px;
-	color: #0F3189;
+	color: #E48F9D;
 }
 .iknow_tm_testimonials .owl-theme .owl-dots .owl-dot span{
 	width: 11px;
@@ -2421,7 +2496,7 @@ body.dark .loader_line:after{
 	left: 1px;
 	right: 1px;
 	border-radius: 100%;
-	border: 2px solid #0F3189;
+	border: 2px solid #E48F9D;
 	z-index: -1;
 	
 	-webkit-transition: all .5s ease;
@@ -2651,7 +2726,7 @@ body.dark .loader_line:after{
 	height: 90px;
 	min-width: 90px;
 	border-radius: 100%;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 }
 .iknow_tm_contact .wrapper .left ul li .list_inner .icon .svg{
 	position: absolute;
@@ -2953,7 +3028,7 @@ input[type=number] {
 .iknow_tm_hero_second .right .image .second{
 	width: 105px;
 	height: 152px;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	bottom: -5px;
 	left: -25px;
 	z-index: 2;
@@ -2961,7 +3036,7 @@ input[type=number] {
 .iknow_tm_hero_second .right .image .third{
 	width: 165px;
 	height: 365px;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	top: -30px;
 	right: -30px;
 }
@@ -3035,7 +3110,7 @@ input[type=number] {
 	background-color: #E48F9C;
 }
 .iknow_tm_extra_menu .list_in .down_icon{
-	background-color: #0F3189;
+	background-color: #E48F9D;
 }
 .iknow_tm_extra_menu .list_in .center{
 	width: 100%;
@@ -3097,7 +3172,7 @@ input[type=number] {
 }
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li.opened .list_in .list_icon,
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li .list_in:hover .list_icon{
-	background-color: #0F3189;
+	background-color: #E48F9D;
 }
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li.opened .list_in .center,
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li .list_in:hover .center{
@@ -3929,12 +4004,12 @@ input[type=number] {
 	bottom: 30px !important;
 	left: 30px !important;
 	right: -30px !important;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	border-radius: 15px;
 	z-index: 1;
 }
 .iknow_tm_button.yellow a{
-	background-color: #0F3189;
+	background-color: #E48F9D;
 }
 .iknow_tm_button.yellow a:hover{
 	background-color: #E48F9C;
@@ -4014,7 +4089,7 @@ input[type=number] {
 	bottom: 10px;
 	border-radius: 20px;
 	border-radius: 50px;
-	background-color: #0F3189;
+	background-color: #E48F9D;
 	z-index: -1;
 	
 	-webkit-transition: all .5s ease;
