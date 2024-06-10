@@ -66,6 +66,16 @@
                     </div>
                 </div>  
             </div>
+            <div class="row about-list">
+              <div class="col-md-12">
+                <h6 class="theme-color lead" style="color: #E48F9C;">Persentase Jenis Kulit:</h6>
+                <ul class="m-0px font-w-600" style="text-align: left; margin-left: 20px;">
+                  {% for penyakit, persentase in persentase.items() %}
+        <li>{{ penyakit }}: {{ persentase }}%</li>
+        {% endfor %}
+                </ul>
+              </div>
+            </div>
             </div>
           </div>
           <div class="col-lg-6">

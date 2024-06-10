@@ -87,18 +87,7 @@
 							<p class="text">Treat problem your skin and <br> maintain a clear, calm complexion.</p>
 							<div class="iknow_tm_video">
 								<div class="iknow_tm_button">
-									<a onclick="openModal()" >Rating</a>
-								</div>
-								<div id="rating-popup">
-									<h2>Rate our Diagnosis</h2>
-									<div class="star-rating">
-										<input type="radio" id="star5" name="rating" value="5"><label for="star5">☆</label>
-										<input type="radio" id="star4" name="rating" value="4"><label for="star4">☆</label>
-										<input type="radio" id="star3" name="rating" value="3"><label for="star3">☆</label>
-										<input type="radio" id="star2" name="rating" value="2"><label for="star2">☆</label>
-										<input type="radio" id="star1" name="rating" value="1"><label for="star1">☆</label>
-									</div>
-									<button id="submit-rating" onclick="submitRating()">Submit Rating</button>
+									<a href="#about">Cek Jenis Kulit</a>
 								</div>
 							</div>
 						</div>
@@ -164,9 +153,6 @@
 		
 	</div>
 	<!-- /HERO -->
-
-
-	
 	
 	<!-- MAINPART -->
 	<div class="container">
@@ -454,7 +440,6 @@
 						<h3 style="color: #E48F9C;">Cek Jenis Kulit</h3>
 					</div>
 					<div class="wrapper">
-
 						<div class="right">
 							<div class="fields" id="form_awal">
 								<form action="/" method="post" class="contact_form" id="contact_form" autocomplete="off">
@@ -462,12 +447,12 @@
 									<div class="empty_notice"><span>Please Fill Required Fields</span></div>
 									<div class="input_list">
 										<ul>
-											<li><input id="name" type="text" placeholder="Nama" /></li>
-											<li><input id="usia" type="number" placeholder="Usia" /></li>
+											<li><input id="name" name="nama" type="text" placeholder="Nama" required /></li>
+											<li><input id="usia" name="usia" type="number" placeholder="Usia" required /></li>
 										</ul>
 									</div>
 									<div class="dropdown">
-										<select class="form-select" id="jenisKelamin" aria-label="Default select example">
+										<select class="form-select" id="jenisKelamin" name="jeniskelamin" aria-label="Default select example" required>
 											<option selected>Jenis Kelamin</option>
 											<option value="Laki-Laki">Laki-laki</option>
 											<option value="Perempuan">Perempuan</option>
@@ -480,17 +465,16 @@
 								</form>
 							</div>
 							<div class="hidden pertanyaan-selanjutnya" id="pertanyaan_selanjutnya">
-								<div class="fields">						
-									<form method="POST">
+								<div class="fields">                        
+									<form method="POST" id="dynamic_form">
+										<input type="hidden" class="namaValue" name="nama">
+										<input type="hidden" class="usiaValue" name="usia">
+										<input type="hidden" class="jenisValue" name="jeniskelamin">
 										<div class="form-container">
-                                            <input class="namaValue" type="hidden" name="nama">
-                                            <input class="jenisValue" type="hidden" name="jeniskelamin">
-                                            <input class="usiaValue" type="hidden" name="usia">
-											{% for i in range(1, 6) %}
+											<div id="gejala_container">
 												<div class="form-pair">
 													<div>
-														<!-- <label for="gejala{{ i }}">Pilih Gejala {{ i }}:</label><br> -->
-														<select id="gejala{{ i }}" name="gejala{{ i }}" required>
+														<select name="gejala[]" required>
 															<option value="" disabled selected>Pilih Gejala</option>
 															{% for gejala in gejala_options %}
 																<option value="{{ gejala }}">{{ gejala }}</option>
@@ -498,8 +482,7 @@
 														</select>
 													</div>
 													<div>
-														<!-- <label for="keyakinan{{ i }}">Pilih Tingkat Keyakinan:</label><br> -->
-														<select id="keyakinan{{ i }}" name="keyakinan{{ i }}" required>
+														<select name="keyakinan[]" required>
 															<option value="" disabled selected>Pilih Tingkat Keyakinan</option>
 															{% for keyakinan, label in keyakinan_options %}
 																<option value="{{ keyakinan }}">{{ label }}</option>
@@ -507,11 +490,13 @@
 														</select>
 													</div>
 												</div>
-											{% endfor %}
-											<!-- <input type="submit" value="Submit"> -->
+											</div>
 											<div class="grup" style="margin-top: 50px;">
 												<div class="poiu">
 													<a id="back" href="#">Back</a>
+												</div>
+												<div class="poiu">
+													<button type="button" id="add_gejala">Pilih Gejala Lain</button>
 												</div>
 												<div class="poiu">
 													<input type="submit" value="Submit">
@@ -520,18 +505,19 @@
 										</div>
 									</form>
 									{% if hasil %}
-            							<div class="result">
-                							<h2>Hasil Diagnosis:</h2>
-                							<p>{{ hasil }}</p>
-           				 				</div>
-        							{% endif %}
+										<div class="result">
+											<h2>Hasil Diagnosis:</h2>
+											<p>{{ hasil }}</p>
+										</div>
+									{% endif %}
 								</div>
 							</div>
 						</div>
-					
 					</div>
 				</div>
 			</div>
+			
+			
 			<!-- /CONTACT -->
 
 		</div>
@@ -565,9 +551,9 @@
 <!-- / WRAPPER ALL -->
 	
 <!-- SCRIPTS -->
-<script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    documen
+<!-- <script>
 
 	document.getElementById("contact_form").addEventListener("click", function(event){
 		event.preventDefault(); // Prevent the default link behavior
@@ -583,27 +569,13 @@
 
 		// You can further process these values as needed
 	});
-</script>
+</script> -->
 <script src="/static/js/jquery.js"></script>
 <!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->	
 <script src="/static/js/plugins.js"></script>
 <script src="/static/js/init.js"></script>
 <!-- Masukkan JavaScript Anda di sini -->
-
-<script>
-	function openModal() {
-		document.getElementById('rating-popup').style.display = 'block';
-	}
-
-	function submitRating() {
-		// Add your rating submission logic here
-		alert('Rating submitted! Thank you.');
-		document.getElementById('rating-popup').style.display = 'none';
-	}
-</script>
-
-
-<script>
+<!-- <script>
 	document.getElementById("lanjutkan").addEventListener("click", function(event) {
 		event.preventDefault(); // Mencegah form dari pengiriman default
 
@@ -637,10 +609,52 @@
 		// Sembunyikan pertanyaan selanjutnya
 		document.getElementById("pertanyaan_selanjutnya").classList.add("hidden");
 	});
-</script>
+</script> -->
 <!-- /SCRIPTS -->
 
-
+<script>
+	$(document).ready(function(){
+		$('#lanjutkan').click(function(e){
+			e.preventDefault();
+			$('.namaValue').val($('#name').val());
+			$('.usiaValue').val($('#usia').val());
+			$('.jenisValue').val($('#jenisKelamin').val());
+			$('#form_awal').hide();
+			$('#pertanyaan_selanjutnya').show();
+		});
+	
+		$('#back').click(function(e){
+			e.preventDefault();
+			$('#pertanyaan_selanjutnya').hide();
+			$('#form_awal').show();
+		});
+	
+		$('#add_gejala').click(function(){
+			var newFormPair = `
+				<div class="form-pair">
+					<div>
+						<select name="gejala[]" required>
+							<option value="" disabled selected>Pilih Gejala</option>
+							{% for gejala in gejala_options %}
+								<option value="{{ gejala }}">{{ gejala }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div>
+						<select name="keyakinan[]" required>
+							<option value="" disabled selected>Pilih Tingkat Keyakinan</option>
+							{% for keyakinan, label in keyakinan_options %}
+								<option value="{{ keyakinan }}">{{ label }}</option>
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+			`;
+			$('#gejala_container').append(newFormPair);
+		});
+	});
+	
+</script>
 
 </body>
 </html>
