@@ -87,8 +87,19 @@
 							<p class="text">Treat problem your skin and <br> maintain a clear, calm complexion.</p>
 							<div class="iknow_tm_video">
 								<div class="iknow_tm_button">
-									<a href="#about">Cek Jenis Kulit</a>
+									<a onclick="openModal()">Rating</a>
 								</div>
+							</div>
+							<div id="rating-popup">
+								<h2 >Rate our Diagnosis</h2>
+								<div class="star-rating">
+									<input type="radio" id="star5" name="rating" value="5"><label for="star5">☆</label>
+									<input type="radio" id="star4" name="rating" value="4"><label for="star4">☆</label>
+									<input type="radio" id="star3" name="rating" value="3"><label for="star3">☆</label>
+									<input type="radio" id="star2" name="rating" value="2"><label for="star2">☆</label>
+									<input type="radio" id="star1" name="rating" value="1"><label for="star1">☆</label>
+								</div>
+								<button id="submit-rating" onclick="submitRating()">Submit Rating</button>
 							</div>
 						</div>
 						<div class="right">
@@ -654,6 +665,18 @@
 		});
 	});
 	
+</script>
+
+<script>
+	function openModal() {
+		document.getElementById('rating-popup').style.display = 'block';
+	}
+
+	function submitRating() {
+		// Add your rating submission logic here
+		alert('Rating submitted! Thank you.');
+		document.getElementById('rating-popup').style.display = 'none';
+	}
 </script>
 
 </body>
