@@ -78,21 +78,45 @@ def index():
         persentase_str = urllib.parse.urlencode(persentase)
 
         if hasil == 'Kulit Berminyak':
-            return redirect(url_for('minyak', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            if jeniskelamin == 'Laki-Laki':
+                return redirect(url_for('minyak', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            else:
+                return redirect(url_for('minyakPerempuan', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))    
+            
         elif hasil == 'Kulit Kering':
-            return redirect(url_for('kering', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            if jeniskelamin == 'Laki-Laki':
+                return redirect(url_for('kering', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            else:
+                return redirect(url_for('keringPerempuan', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
         elif hasil == 'Kulit Normal':
-            return redirect(url_for('normal', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            if jeniskelamin == 'Laki-Laki':
+                return redirect(url_for('normal', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            else:
+                return redirect(url_for('normalPerempuan', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
         elif hasil == 'Kulit Kombinasi':
-            return redirect(url_for('kombinasi', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            if jeniskelamin == "Laki-Laki":
+                return redirect(url_for('kombinasi', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            else:
+                return redirect(url_for('kombinasiPerempuan', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
         elif hasil == 'Kulit Sensitif':
-            return redirect(url_for('sensitif', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            if jeniskelamin == 'Laki-Laki':
+                return redirect(url_for('sensitif', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
+            else:
+                return redirect(url_for('sensitifPerempuan', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase_str))
         else:
             return render_template('index.html', hasil="Tidak ada penyakit yang sesuai dengan gejala yang dimasukkan.", gejala_options=gejala_options, keyakinan_options=keyakinan_options)
 
     return render_template('index.html', gejala_options=gejala_options, keyakinan_options=keyakinan_options)
 
-@app.route('/minyak')
+@app.route('/minyakPerempuan')
+def minyakPerempuan():
+    nama = request.args.get('nama')
+    usia = request.args.get('usia')
+    jeniskelamin = request.args.get('jeniskelamin')
+    persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
+    return render_template('minyakPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
+
+@app.route('/minyakLaki')
 def minyak():
     nama = request.args.get('nama')
     usia = request.args.get('usia')
@@ -101,7 +125,7 @@ def minyak():
     return render_template('minyak.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
 # Ulangi cara ini untuk route lainnya seperti 'kering', 'normal', 'kombinasi', dan 'sensitif'
-@app.route('/kering')
+@app.route('/keringLaki')
 def kering():
     nama = request.args.get('nama')
     usia = request.args.get('usia')
@@ -109,7 +133,15 @@ def kering():
     persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
     return render_template('kering.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
-@app.route('/normal')
+@app.route('/keringPerempuan')
+def keringPerempuan():
+    nama = request.args.get('nama')
+    usia = request.args.get('usia')
+    jeniskelamin = request.args.get('jeniskelamin')
+    persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
+    return render_template('keringPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
+
+@app.route('/normalLaki')
 def normal():
     nama = request.args.get('nama')
     usia = request.args.get('usia')
@@ -117,7 +149,15 @@ def normal():
     persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
     return render_template('normal.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
-@app.route('/kombinasi')
+@app.route('/normalPerempuan')
+def normalPerempuan():
+    nama = request.args.get('nama')
+    usia = request.args.get('usia')
+    jeniskelamin = request.args.get('jeniskelamin')
+    persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
+    return render_template('normalPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
+
+@app.route('/kombinasiLaki')
 def kombinasi():
     nama = request.args.get('nama')
     usia = request.args.get('usia')
@@ -125,13 +165,29 @@ def kombinasi():
     persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
     return render_template('kombinasi.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
-@app.route('/sensitif')
+@app.route('/kombinasiPerempuan')
+def kombinasiPerempuan():
+    nama = request.args.get('nama')
+    usia = request.args.get('usia')
+    jeniskelamin = request.args.get('jeniskelamin')
+    persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
+    return render_template('kombinasiPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
+
+@app.route('/sensitifLaki')
 def sensitif():
     nama = request.args.get('nama')
     usia = request.args.get('usia')
     jeniskelamin = request.args.get('jeniskelamin')
     persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
     return render_template('sensitif.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
+
+@app.route('/sensitifPerempuan')
+def sensitifPerempuan():
+    nama = request.args.get('nama')
+    usia = request.args.get('usia')
+    jeniskelamin = request.args.get('jeniskelamin')
+    persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
+    return render_template('sensitifPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
 
 if __name__ == '__main__':

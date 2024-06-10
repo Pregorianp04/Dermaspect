@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="static/css/stylehasil.css">
 
 <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-   
+  
   </head>
   <body>
     <!-- TOPBAR -->
@@ -20,15 +20,15 @@
 		<div class="container">
 			<div class="topbar_inner">
 				<div class="logo">
-					<a href="#"><img src="/static/img/logo.png" alt="" /></a>
+					<a href="#"><img src="/static//img/logo.png" alt="" /></a>
 				</div>
 				<div class="right">
 					<div class="social">
 						<ul>
-							<li><a href="#"><img class="svg" src="/static/img/svg/social/facebook.svg" alt="" /></a></li>
-							<li><a href="#"><img class="svg" src="/static/img/svg/social/twitter.svg" alt="" /></a></li>
-							<li><a href="#"><img class="svg" src="/static/img/svg/social/youtube.svg" alt="" /></a></li>
-							<li><a href="#"><img class="svg" src="/static/img/svg/social/instagram.svg" alt="" /></a></li>
+							<li><a href="#"><img class="svg" src="/static//img/svg/social/facebook.svg" alt="" /></a></li>
+							<li><a href="#"><img class="svg" src="/static//img/svg/social/twitter.svg" alt="" /></a></li>
+							<li><a href="#"><img class="svg" src="/static//img/svg/social/youtube.svg" alt="" /></a></li>
+							<li><a href="#"><img class="svg" src="/static//img/svg/social/instagram.svg" alt="" /></a></li>
 						</ul>
 					</div>
 				</div>
@@ -43,13 +43,13 @@
             <div class="about-text go-to">
               <h3 bclass="dark-color" style="color: #20247b;">Hasil Jenis Kulit</h3>
               <h6 class="theme-color lead" style="color: #E48F9C;">
-               Jenis kulit anda adalah Berminyak
+               Jenis kulit anda adalah Kering
               </h6>
               <p>
-                Kulit berminyak memiliki kilau 
-                berlebihan dan cenderung berpori 
-                besar. Rentan terhadap jerawat, 
-                komedo, dan masalah kulit lainnya.
+                Kulit kering cenderung terasa kencang, 
+                kusam, dan terkadang bersisik. 
+                Kekurangan minyak alami membuatnya rentan 
+                terhadap garis halus dan ketegangan.
               </p>
               <div class="row about-list">
                 <div class="col-md-6">
@@ -66,7 +66,7 @@
                         <p id="display_age">{{usia}}</p>
                     </div>
                 </div>  
-            </div>
+            </div>   
             <div class="row about-list">
               <div class="col-md-12">
                 <h6 class="theme-color lead" style="color: #E48F9C;">Persentase Jenis Kulit:</h6>
@@ -76,13 +76,13 @@
         {% endfor %}
                 </ul>
               </div>
-            </div>
+            </div>         
             </div>
           </div>
           <div class="col-lg-6">
             <div class="about-avatar">
               <img style="margin-left: 120px;"
-                src="/static/img/cowok.png"
+                src="static/img/cewek.png"
                 title
                 alt
               />
@@ -93,18 +93,18 @@
           <div class="row">
             <div class="col-6 col-lg-4">
               <div class="count-data text-center">
-                <img style="margin-left: 120px; width:250px" src="/static/img/normal.jpg" title alt/>
+                <img style="margin-left: 120px; width:250px" src="/static//img/normal.jpg" title alt/>
               </div>
             </div>
             <div class="col-6 col-lg-4">
               <div class="count-data text-center">
                 <h6 class="count h2" data-to="150" data-speed="150">Ciri-ciri</h6>
                 <ul class="m-0px font-w-600" style=" text-align:left; margin-left: 70px;">
-                  <li>Minyak berlebih</li>
-                  <li>Mudah jerawat dan komedo</li>
-                  <li>Make-up di wajah mudah luntur</li>
-                  <li>Tekstur kulit wajah Kasar</li>
-                  <li>Pori-pori lebih besar</li>
+                  <li>Kulit kasar dan bersisik</li>
+                  <li>Kulit terlihat kusam & kurang bercahaya</li>
+                  <li>Sulit mempertahankan kelembapan alami</li>
+                  <li>Garis-garis Halus dan Keriput yang Terlihat</li>
+                  <li>Rentan terhadap Peradangan dan Eksim</li>
                 </ul>                
               </div>
             </div>
@@ -112,11 +112,11 @@
               <div class="count-data text-center">
                 <h6 class="count h2" data-to="850" data-speed="850">Bahan Aktif</h6>
                 <ul class="m-0px font-w-600" style="text-align:left; margin-left: 100px;">
-                  <li>Asam Salisilat</li>
-                  <li>Retinol</li>
-                  <li>Niacinamide</li>
-                  <li>Witch Hazel</li>
-                  <li>Bentonite Clay</li>
+                  <li>Shea Butter</li>
+                  <li>Minyak Almond</li>
+                  <li>Ceramide</li>
+                  <li>Hyaluronic Acid</li>
+                  <li>AHA BHA</li>
                 </ul> 
                 <div class="iknow_tm_button">
                   <a id="back" href="/">Back</a>
@@ -138,24 +138,24 @@
       src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
     ></script>
     <script>
-      document.getElementById("contact_form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent the form from submitting
-  
-  // Ambil nilai dari input
-  var nama = document.getElementById("nama").value;
-  var umur = document.getElementById("umur").value;
-  var jenisKelamin = document.getElementById("jenisKelamin").value;
-  
-  // Tampilkan nilai di elemen HTML
-  document.getElementById("display_name").textContent = nama;
-  document.getElementById("display_gender").textContent = jenisKelamin;
-  document.getElementById("display_age").textContent = umur;
-  
-  // Kosongkan nilai input setelah submit jika diperlukan
-  // document.getElementById("nama").value = "";
-  // document.getElementById("umur").value = "";
-});
-</script>
+          document.getElementById("contact_form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+      
+      // Ambil nilai dari input
+      var nama = document.getElementById("nama").value;
+      var umur = document.getElementById("umur").value;
+      var jenisKelamin = document.getElementById("jenisKelamin").value;
+      
+      // Tampilkan nilai di elemen HTML
+      document.getElementById("display_name").textContent = nama;
+      document.getElementById("display_gender").textContent = jenisKelamin;
+      document.getElementById("display_age").textContent = umur;
+      
+      // Kosongkan nilai input setelah submit jika diperlukan
+      // document.getElementById("nama").value = "";
+      // document.getElementById("umur").value = "";
+  });
+    </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"></script>
