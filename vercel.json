@@ -1,8 +1,16 @@
 {
-  "builds": [
-    { "src": "api/hello.py", "use": "@vercel/python" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "api/hello.py" }
-  ]
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/hello.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "api/hello.py"
+      }
+    ]
+  }
+  
