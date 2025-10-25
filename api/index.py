@@ -189,6 +189,4 @@ def sensitifPerempuan():
     persentase = {k: float(v[0]) for k, v in urllib.parse.parse_qs(request.args.get('persentase')).items()}
     return render_template('sensitifPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+application = app
