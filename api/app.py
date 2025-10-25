@@ -190,5 +190,5 @@ def sensitifPerempuan():
     return render_template('sensitifPerempuan.html', nama=nama, usia=usia, jeniskelamin=jeniskelamin, persentase=persentase)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
